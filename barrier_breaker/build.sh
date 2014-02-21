@@ -43,7 +43,11 @@ cp -rf ./openwrt-plus/feeds/* ./barrier_breaker/feeds/
 
 #patch luci
 patch -p0 ./barrier_breaker/feeds/luci/contrib/package/luci/Makefile < ./barrier_breaker/feeds/luci/contrib/package/luci/Makefile.diff
-rm ./barrier_breaker/feeds/luci/contrib/package/luci/Makefile.diff
+rm -rf ./barrier_breaker/feeds/luci/contrib/package/luci/Makefile.diff
+
+#patch luci config
+patch -p0 ./barrier_breaker/feeds/luci/libs/web/root/etc/config/luci < ./barrier_breaker/feeds/luci/libs/web/root/etc/config/luci.diff
+rm -rf ./barrier_breaker/feeds/luci/libs/web/root/etc/config/luci.diff
 
 #operating fils directory
 #copy config files

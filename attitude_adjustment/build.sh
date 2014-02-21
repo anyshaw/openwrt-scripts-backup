@@ -44,7 +44,11 @@ rm -rf ./attitude_adjustment/feeds/packages/libs/libffi/Makefile.diff
 
 #patch luci
 patch -p0 ./attitude_adjustment/feeds/luci/contrib/package/luci/Makefile < ./attitude_adjustment/feeds/luci/contrib/package/luci/Makefile.diff
-rm ./attitude_adjustment/feeds/luci/contrib/package/luci/Makefile.diff
+rm -rf ./attitude_adjustment/feeds/luci/contrib/package/luci/Makefile.diff
+
+#patch luci config
+patch -p0 ./attitude_adjustment/feeds/luci/libs/web/root/etc/config/luci < ./attitude_adjustment/feeds/luci/libs/web/root/etc/config/luci.diff
+rm -rf ./attitude_adjustment/feeds/luci/libs/web/root/etc/config/luci.diff
 
 #operating fils directory
 #copy config files
