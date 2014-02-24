@@ -16,17 +16,11 @@ cp ./barrier_breaker/feeds.conf.default ./barrier_breaker/feeds.conf
 ./barrier_breaker/scripts/feeds update -a
 ./barrier_breaker/scripts/feeds install -a
 
-#delete some files from openwrt-plus
-rm -rf ./openwrt-plus/feeds/packages/libs/glib2
-rm -rf ./openwrt-plus/feeds/packages/libs/libffi
-
 #operating package directory
 #package install
 cp -rf ./openwrt-plus/package/* ./barrier_breaker/package/
 
 #patch openssl
-mv ./barrier_breaker/package/openssl/Makefile.diff ./barrier_breaker/package/libs/openssl/
-rm -rf ./barrier_breaker/package/openssl
 patch -p0 ./barrier_breaker/package/libs/openssl/Makefile < ./barrier_breaker/package/libs/openssl/Makefile.diff
 rm -rf ./barrier_breaker/package/libs/openssl/Makefile.diff
 
